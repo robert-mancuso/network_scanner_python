@@ -63,7 +63,6 @@ def scan_ports(host, port_range):
     port_list = list(port_range)
     total_ports = len(port_list)
     scanned_count = 0
-    open_ports = []
     timeout = 1.0
 
     # lock counter to prevent race condition:
@@ -175,6 +174,9 @@ if __name__ == "__main__":
 
     # run concurrent scan:
     open_ports = scan_ports(target_ip, port_range)
+
+    print(f"\nOpen ports: {open_ports}")
+    print("\nAll done!")
 
     """# loop through the dictionary of common ports:
     for port, service in common_ports.items():
